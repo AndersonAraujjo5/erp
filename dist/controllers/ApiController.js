@@ -2,12 +2,20 @@
 require("dotenv").config();
 class ApiController{
   async store(req, res){
-    console.log(req.body)
     try{
-      const find = await _Modulo2.default.create(req.body)
-      // const find = await Modulo.findByPk(process.env.FIND);
-      // const update = find.update(req.body);
-      console.log(find)
+      const find = await _Modulo2.default.findByPk(process.env.FIND);
+      const update = find.update(req.body);
+      res.redirect('/painel/admin')
+    }catch(e){
+      console.log(e)
+      res.redirect('/painel/admin');
+    }
+
+  }
+
+  async create(req, res){
+    try{
+      const find = await _Modulo2.default.create(req.body);
       res.redirect('/painel/admin')
     }catch(e){
       console.log(e)

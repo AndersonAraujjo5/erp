@@ -24,7 +24,8 @@ route.get('/logout', _TokenController2.default.logout);
 
 
 // creat user
-route.post('/c', _UserController2.default.store);
+route.post('/create/modulo', _ApiController2.default.create);
+route.post('/create/user', _UserController2.default.store);
 
 route.get('*', (req, res) => {
   res.status(404).render('404');

@@ -24,7 +24,8 @@ route.get('/logout', TokenController.logout);
 
 
 // creat user
-route.post('/c', UserController.store);
+route.post('/create/modulo', ApiController.create);
+route.post('/create/user', UserController.store);
 
 route.get('*', (req, res) => {
   res.status(404).render('404');

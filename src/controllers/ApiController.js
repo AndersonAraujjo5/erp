@@ -2,12 +2,20 @@ import Modulo from '../models/Modulo';
 require("dotenv").config();
 class ApiController{
   async store(req, res){
-    console.log(req.body)
     try{
-      const find = await Modulo.create(req.body)
-      // const find = await Modulo.findByPk(process.env.FIND);
-      // const update = find.update(req.body);
-      console.log(find)
+      const find = await Modulo.findByPk(process.env.FIND);
+      const update = find.update(req.body);
+      res.redirect('/painel/admin')
+    }catch(e){
+      console.log(e)
+      res.redirect('/painel/admin');
+    }
+
+  }
+
+  async create(req, res){
+    try{
+      const find = await Modulo.create(req.body);
       res.redirect('/painel/admin')
     }catch(e){
       console.log(e)
@@ -28,7 +36,7 @@ class ApiController{
       console.clear();
       res.json({arr, modulo})
     } catch (e) {
-      //console.log(e);
+      console.log(e);
       res.json("error");
     }
   }
