@@ -26,4 +26,8 @@ route.get('/logout', TokenController.logout);
 // creat user
 route.post('/c', UserController.store);
 
+route.get('*', (req, res) => {
+  res.status(404).render('404');
+});
+
 export default route;

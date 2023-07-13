@@ -10,7 +10,7 @@ class Painel{
 
   async calc(){
 
-    const dados = await fetch('/api/modulos', {method:"POST"});
+    const dados = await fetch('http://localhost:3000/api/modulos', {method:"POST"});
     const modulos = await dados.json();
 
     document.getElementById("PORCENTAGEM").onkeyup = ({target}) => {

@@ -61,7 +61,7 @@ class HomeController {
       res.render('index', { precos:modulo });
 
     }catch(e){
-      res.send(e)
+      res.render('404');
     }
 
   }
@@ -118,11 +118,12 @@ class HomeController {
       res.render("painel", {arr, modulo, user:req.session.user})
     } catch (e) {
       console.log(e);
-      res.render("painel");
+      res.redirect('/painel/admin');
     }
   }
 
   async clientes(req,res){
+   try{
     let {page = 1, qtd = 20} = req.query;
     page = parseInt(page);
     qtd = parseInt(qtd)
@@ -130,6 +131,10 @@ class HomeController {
     const findAll = (await _Cliente2.default.findAll()).slice((page*qtd)-qtd,page*qtd);
     const modulo = attributes();
     res.render("clientes", {clientes:findAll, user:req.session.user, modulo })
+   }catch(e){
+    console.log(e);
+    res.redirect('/painel/admin');
+   }
   }
 
 

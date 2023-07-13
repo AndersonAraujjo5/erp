@@ -1,7 +1,7 @@
 class Planos {
 
   async valores() {
-    const modulo = await fetch("/api/modulos",{method:"POST"});
+    const modulo = await fetch("http://localhost:3000/api/modulos",{method:"POST"});
     const modulos = await modulo.json();
     const precos = modulos;
     return precos;

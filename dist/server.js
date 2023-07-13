@@ -13,6 +13,7 @@ const app = _express2.default.call(void 0, );
 
 const whiteList = [
   'http://34.125.234.23',
+  'http://localhost:3000'
 ];
 
 const options = {
@@ -55,7 +56,7 @@ app.use(_express2.default.urlencoded({ extended: true }));
 app.use(_express2.default.json());
 app.use(_express2.default.static(_path2.default.resolve(__dirname, 'public')));
 
-app.set('views', _path2.default.resolve(__dirname, 'src', 'views'));
+app.set('views', _path2.default.resolve(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(_middleware2.default);
 app.use('/', _router2.default);
