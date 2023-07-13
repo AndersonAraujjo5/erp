@@ -13,6 +13,7 @@ const app = _express2.default.call(void 0, );
 
 const whiteList = [
   'http://34.125.234.23',
+  'http://localhost:3000'
 ];
 
 const options = {

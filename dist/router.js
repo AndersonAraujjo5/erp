@@ -16,7 +16,7 @@ route.get('/painel/admin', _loginRequired2.default, _HomeController2.default.pai
 route.get('/painel/clientes',_loginRequired2.default, _HomeController2.default.clientes);
 
 // api modulos
-route.post('/painel/admin', _ApiController2.default.store);
+route.post('/painel/admin',_loginRequired2.default, _ApiController2.default.store);
 route.post('/api/modulos', _ApiController2.default.index);
 
 route.post('/login', _TokenController2.default.store);

@@ -22,8 +22,8 @@ class CalcPlano {
     this.init();
   }
 
-  async getPrecos(){
-    const {modulo} = await Planos.valores();
+  async getPrecos() {
+    const { modulo } = await Planos.valores();
     delete modulo.id
     delete modulo.createdAt
     delete modulo.updatedAt;
@@ -234,7 +234,7 @@ class CalcPlano {
         const json = JSON.stringify(this.pacotes)
         const local = window.location.host;
         async function enviarDados() {
-          await fetch(`/mail`, {
+          await fetch(`http://localhost:3000/mail`, {
             method: "POST",
             body: json,
             headers: { "Content-type": "application/json;charset=UTF-8" }

@@ -58,10 +58,10 @@ class HomeController {
   async home(req, res) {
     try{
       const {modulo} = await Planos.valores();
+      console.log(modulo)
       res.render('index', { precos:modulo });
-
     }catch(e){
-      res.send(e)
+      res.send('erro')
     }
 
   }
