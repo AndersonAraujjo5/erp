@@ -4,3 +4,7 @@ a.json
 frontend
 public
 src
+.sequelizerc
+.eslint
+editoconfig
+webpack.config.js
