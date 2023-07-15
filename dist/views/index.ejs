@@ -181,11 +181,22 @@
     #fluur {
       display: none;
       z-index: 2;
-      height: 182px;
       width: 100%;
       top: 0;
       backdrop-filter: blur(2px);
+      font-size: 1vw;
     }
+
+    #fluur h1{
+      font-size: 3vw;
+    }
+
+    .accordion-img {
+      max-width: 600px;
+      max-height: 200px;
+      height: 100%;
+    }
+
 
 
     @media (max-width: 768px) {
@@ -205,10 +216,6 @@
         display: none;
       }
 
-      #fluur {
-        height: 20vw;
-      }
-
       /* */
     }
 
@@ -225,16 +232,70 @@
       .header-fixed p>span {
         font-size: 2vw;
       }
+    }
 
-      #fluur {
-        height: 21vw;
+    @media (max-width:570px){
+      .accordion-img {
+      max-width: 600px;
+      max-height: 200px;
+      width: 100%;
+      height: 100%;
+    }
+    }
+
+    @media (max-width:500px){
+      footer .row{
+        flex-wrap:wrap;
+        flex-direction: column;
+      }
+
+      footer .row .col-12,footer .row .col-6{
+        width: 100%;
+        text-align: center;
       }
     }
   </style>
 </head>
-<div id="fluur" class="position-fixed border-bottom"></div>
+<div id="fluur" class="position-fixed border-bottom">
+  <div class="d-flex justify-content-evenly">
+    <div class="mt-3 border-0 text-center">
+      <div class="z-3" style="--bs-card-bg:auto">
+        <h4 class="my-0 fw-normal">Personalizado</h4>
+        <h1 class="card-title pricing-card-title">R$ <span id="basePersonalizadoHeader">
+            <%= precos.BASEPERSONALIZADO.toFixed(2).replace('.',',') %>
+          </span><small class="text-body-secondary fw-light">/mês</small>
+        </h1>
+        <p> Treinamento e Config. Inicial <br>R$ <span id="treinamentoPersonalizado">
+            <%= precos.TREINAMENTOCONFIGPERSONALIZADO.toFixed(2).replace('.',',') %>
+          </span></p>
+      </div>
+    </div>
+    <div class="mt-3 border-0 text-center">
+      <div class="z-3" style="--bs-card-bg:auto">
+        <h4 class="my-0 fw-normal">Ideal</h4>
+        <h1 class="card-title pricing-card-title">R$<span id="baseIdealHeader">
+            <%= precos.BASEIDEAL.toFixed(2).replace('.',',') %>
+          </span><small class="text-body-secondary fw-light">/mês</small>
+        </h1>
+        <p> Treinamento e Config. Inicial <br>R$ <span id="treinamentoIdeal">
+            <%= precos.TREINAMENTOIDEAL.toFixed(2).replace('.',',') %>
+          </span></p>
+      </div>
+    </div>
+    <div class="mt-3 border-0 text-center">
+      <div class="z-3" style="--bs-card-bg:auto">
+        <h4 class="my-0 fw-normal">Completo</h4>
+        <h1 class="card-title pricing-card-title">R$ <span id="baseCompletoHeader">
+            <%= precos.BASECOMPLETO.toFixed(2).replace('.',',') %>
+          </span><small class="text-body-secondary fw-light">/mês</small>
+        </h1>
+        <p> Treinamento e Config. Inicial <br>Gratis</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden position-relative">
   <nav class="navbar navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
       <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
@@ -421,7 +482,8 @@
               href="https://pontodata.com/nossos-servicos">Nossos
               Serviços</a>
 
-              <a class="me-3 py-2 link-body-emphasis text-decoration-none text-light" href="https://pontodata.com/quem-somos/">Quem Somos</a>
+            <a class="me-3 py-2 link-body-emphasis text-decoration-none text-light"
+              href="https://pontodata.com/quem-somos/">Quem Somos</a>
             <a class="me-3 py-2 link-body-emphasis text-decoration-none text-light"
               href="https://pontodata.com/blog">Blog</a>
             <a class="me-3 py-2 link-body-emphasis text-decoration-none text-light"
@@ -545,7 +607,7 @@
             <div class="accordion-body">
               <div class="d-flex colum">
                 <div class="p-5 text-center">
-                  <img width="300" height="200"
+                  <img class="accordion-img"
                     src="https://d293isj6nw1n53.cloudfront.net/images/website/home/functionalities/pdv.png" alt="">
                 </div>
                 <div class="pt-5 ps-3 pe-3">
@@ -573,7 +635,7 @@
             <div class="accordion-body">
               <div class="d-flex colum">
                 <div class="p-5 text-center">
-                  <img width="300" height="200"
+                  <img class="accordion-img"
                     src="https://d293isj6nw1n53.cloudfront.net/images/website/home/functionalities/business.svg" alt="">
                 </div>
                 <div class="pt-5 ps-3 pe-3">
@@ -601,7 +663,7 @@
             <div class="accordion-body">
               <div class="d-flex colum">
                 <div class="p-5 text-center">
-                  <img width="300" height="200"
+                  <img class="accordion-img"
                     src="https://d293isj6nw1n53.cloudfront.net/images/website/home/functionalities/estoque.svg" alt="">
                 </div>
                 <div class="pt-5 ps-3 pe-3">
@@ -630,7 +692,7 @@
             <div class="accordion-body">
               <div class="d-flex colum">
                 <div class="p-5 text-center">
-                  <img width="300" height="200"
+                  <img class="accordion-img"
                     src="https://d293isj6nw1n53.cloudfront.net/images/website/home/functionalities/financeiro.svg"
                     alt="">
                 </div>
@@ -658,7 +720,7 @@
             <div class="accordion-body">
               <div class="d-flex colum">
                 <div class="p-5 text-center">
-                  <img width="300" height="200"
+                  <img class="accordion-img"
                     src="https://d293isj6nw1n53.cloudfront.net/images/website/home/functionalities/notas_fiscais.svg"
                     alt="">
                 </div>
@@ -684,7 +746,7 @@
             <div class="accordion-body">
               <div class="d-flex colum">
                 <div class="p-5 text-center">
-                  <img width="300" height="200"
+                  <img class="accordion-img"
                     src="https://d293isj6nw1n53.cloudfront.net/images/website/home/functionalities/fluxo_de_caixa.svg"
                     alt="">
                 </div>

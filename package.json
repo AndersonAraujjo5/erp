@@ -2,11 +2,12 @@
   "name": "erp",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "sucrase ./src -d ./dist --transforms imports",
     "start": "node dist/server.js",
+    "teste":"nodemon",
     "dev": "webpack -w"
   },
   "keywords": [],

@@ -36,7 +36,7 @@ class ApiController{
       console.clear();
       res.json({arr, modulo})
     } catch (e) {
-      //console.log(e);
+      console.log(e);
       res.json("error");
     }
   }

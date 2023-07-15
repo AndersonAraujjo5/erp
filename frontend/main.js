@@ -83,6 +83,7 @@ class CalcPlano {
   calcular(total, eBase, inputs) {
 
     const valorPer = document.getElementById(eBase);
+    const valorPerHeader = document.getElementById(`${eBase}Header`);
 
     inputs.forEach(elem => {
       const elementos = document.getElementById(elem);
@@ -113,6 +114,7 @@ class CalcPlano {
       }
     })
     valorPer.textContent = total.toFixed(2).replace(".", ",");
+    valorPerHeader.textContent = total.toFixed(2).replace(".", ",");
 
   }
 
@@ -387,16 +389,10 @@ class CalcPlano {
 const planos = new CalcPlano();
 
 const style = {
-  styleBIgAtive: (a, b) => {
-    a.forEach(e => {
-      e.style = `position:fixed; top: 0; z-index:3;`
-    })
+  styleBIgAtive: (b) => {
     b.style.display = 'block';
   },
-  styleDisable: (a, b) => {
-    a.forEach(e => {
-      e.style = `position:unse;top: 0;`
-    })
+  styleDisable: (b) => {
     b.style.display = 'none';
   }
 }
@@ -407,67 +403,29 @@ document.onscroll = () => {
   var posicaoy = window.pageYOffset;
   if (window.innerWidth > 768 && window.innerWidth < 992) {
     if (posicaoy >= 3480 && posicaoy <= 6200) {
-      style.styleBIgAtive(a, b);
+      style.styleBIgAtive(b);
     } else {
-      style.styleDisable(a, b)
+      style.styleDisable(b)
     }
   } else if (window.innerWidth > 992) {
     if (posicaoy >= 3000 && posicaoy <= 5200) {
-      style.styleBIgAtive(a, b);
+      style.styleBIgAtive(b);
     } else {
-      style.styleDisable(a, b)
+      style.styleDisable(b)
     }
   } else if (window.innerWidth < 768) {
     if (posicaoy >= 4000 && posicaoy <= 8900) {
-      a.forEach((e, index) => {
-        switch (index) {
-          case 0:
-            e.style = `position:fixed; top: 0; z-index:3;right:68.6%; padding:0; border:none`;
-            break;
-          case 1:
-            e.style = `position:fixed; top: 0; z-index:3;right:33.3%;padding:0; border:none`;
-            break;
-          case 2:
-            e.style = `position:fixed; top: 0; z-index:3;right:3%;padding:0; border:none`;
-            break;
-        }
-      })
-      b.style.display = 'block';
+      style.styleBIgAtive(b);
     } else {
-      a.forEach((e, index) => {
-        switch (index) {
-          case 0:
-            e.style = `position:unsed; top: 0; z-index:1;`;
-            break;
-          case 1:
-            e.style = `position:unsed; top: 0; z-index:1;`;
-            break;
-          case 2:
-            e.style = `position:unsed; top: 0; z-index:1;`;
-            break;
-        }
-      })
-      b.style.display = 'none';
+      style.styleDisable(b)
     }
   } else if (window.innerWidth < 577) {
-    if (posicaoy >= 4000 && posicaoy < 15000) {
-      a.forEach((e, index) => {
-        switch (index) {
-          case 0:
-            e.style = `position:fixed; top: 0; z-index:3;right:68.6%; padding:0; border:none`;
-            break;
-          case 1:
-            e.style = `position:fixed; top: 0; z-index:3;right:33.3%;padding:0; border:none`;
-            break;
-          case 2:
-            e.style = `position:fixed; top: 0; z-index:3;right:3%;padding:0; border:none`;
-            break;
-        }
-      })
-      b.style.display = 'block';
+    if (posicaoy >= 4000 && posicaoy < 15000){
+      style.styleBIgAtive(b);
+    } else {
+      style.styleDisable(b)
     }
   }
-
 };
 
 
