@@ -28,7 +28,7 @@ route.post('/create/modulo', _ApiController2.default.create);
 route.post('/create/user', _UserController2.default.store);
 
 route.get('*', (req, res) => {
-  res.status(404).render('404');
+  res.redirect('/');
 });
 
 exports. default = route;

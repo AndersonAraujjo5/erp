@@ -28,7 +28,7 @@ route.post('/create/modulo', ApiController.create);
 route.post('/create/user', UserController.store);
 
 route.get('*', (req, res) => {
-  res.status(404).render('404');
+  res.redirect('/');
 });
 
 export default route;
