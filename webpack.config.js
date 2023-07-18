@@ -2,10 +2,10 @@ const path = require('path'); // CommonJS
 
 module.exports = {
   mode: 'production',
-  entry: './frontend/main.js',
+  entry: './frontend/Painel.js',
   output: {
     path: path.resolve(__dirname, 'src', 'public', 'assets', 'js'),
-    filename: 'bundle.js'
+    filename: 'bundle.painel.js'
   },
   module: {
     rules: [{

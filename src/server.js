@@ -12,8 +12,9 @@ const MySQLStore = require('express-mysql-session')(session);
 const app = express();
 
 const whiteList = [
-  'http://34.125.234.23',
-  'http://localhost:3000'
+  'https://andersonaraujo.ddns.net',
+  'http://andersonaraujo.ddns.net',
+  'http://localhost:3000',
 ];
 
 const options = {

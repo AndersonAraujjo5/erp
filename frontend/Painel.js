@@ -1,3 +1,4 @@
+import dominio from "../src/dominio";
 class Painel{
   constructor() {
     this.init()
@@ -10,7 +11,7 @@ class Painel{
 
   async calc(){
 
-    const dados = await fetch('http://localhost:3000/api/modulos', {method:"POST"});
+    const dados = await fetch(`${dominio}/api/modulos`, {method:"POST"});
     const modulos = await dados.json();
 
     document.getElementById("PORCENTAGEM").onkeyup = ({target}) => {
