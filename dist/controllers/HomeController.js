@@ -61,6 +61,7 @@ class HomeController {
       res.render('index', { precos:modulo });
 
     }catch(e){
+      console.log(e)
       res.render('404');
     }
 
